@@ -1,0 +1,27 @@
+:root {
+    --bg-color: #08090a;
+    --text-color: #f7f8f8;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    position: relative;
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
