@@ -62,7 +62,16 @@
                 </div>
             </div>
         </div>
-        
+        <div class="ctn-blur" id="blurBox">
+            <form class="ctn-popup ctn-contact" id="contactForm">
+                <label for="email">Email ID</label>
+                <input class="box-input" id="email" type="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea class="box-input" id="message" name="message" required></textarea>
+                <button class="btn-submit" id="formSubmit" type="submit">Submit</button>
+                <button class="btn-exit" type="reset" onclick="closePopup()">&times;</button>
+            </form>
+        </div>
         <script src="scripts/main.js" defer></script>
     </main>
 </body>
