@@ -8,10 +8,23 @@ function connectForm() {
     document.getElementById("contactForm").style.visibility = "visible";
 }
 
+function emailForm() {
+    document.getElementById("blurBox").style.visibility = "visible";
+    document.getElementById("mailForm").style.visibility = "visible";
+}
+
+function copyEmail() {
+    var copyText = document.getElementById("emailBox");
+    navigator.clipboard.writeText(copyText.value);
+}
+
 function closePopup() {
     document.getElementById("blurBox").style.visibility = "hidden";
     if (document.getElementById("contactForm").style.visibility == "visible") {
         document.getElementById("contactForm").style.visibility = "hidden";
+    }
+    else if (document.getElementById("mailForm").style.visibility == "visible") {
+        document.getElementById("mailForm").style.visibility = "hidden";
     }
     else {
         console.log("No popup to close");
