@@ -108,6 +108,66 @@ body {
     opacity: 0.4;
 }
 
+/* UI Elements */
+
+.btn-long {
+    z-index: 2;
+    position: relative;
+    width: 130px;
+    height: 50px;
+    margin: 0 10px 0 0;
+    color: var(--text-color);
+    background-color: transparent;
+    border: var(--text-color) .2rem solid;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 550;
+    text-align: center;
+    transition: all .6s ease
+}
+
+.btn-long:hover {
+    border: #3654ff .2em solid;
+    cursor: pointer
+}
+
+.btn-short {
+    display: inline-flex;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    font-size: 18px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .5s ease-out
+}
+
+.btn-short:hover {
+    border: #3654ff .2em solid
+}
+
+#gmail, #linkedin, #github, #leetcode, #gallery { 
+    border-width: 0.2em;
+    border-style: solid;
+}
+
+#gmail { border-color: #b02b27; }
+#linkedin { border-color: #2867b2; }
+#github { border-color: #6f40bf; }
+#leetcode { border-color: #dc9a37; }
+#gallery { border-color: #006241; }
+
+#gmail:hover { background-color: #b02b27; }
+#linkedin:hover { background-color: #2867b2; }
+#github:hover { background-color: #6f40bf; }
+#leetcode:hover { background-color: #dc9a37; }
+#gallery:hover { background-color: #006241; }
+
 /* Responsive adjustments */
 
 @media (min-width:1024px) {
