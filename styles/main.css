@@ -110,50 +110,42 @@ body {
 
 /* UI Elements */
 
-.btn-long {
+.btn-long, .btn-short {
     z-index: 2;
     position: relative;
-    width: 130px;
-    height: 50px;
-    margin: 0 10px 0 0;
-    color: var(--text-color);
-    background-color: transparent;
-    border: var(--text-color) .2rem solid;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 550;
     text-align: center;
-    transition: all .6s ease
+    vertical-align: middle;
+    background-color: transparent;
+    border-radius: 500px;
+    border: #ffffff7d .2rem solid;
+    transition: all .3s ease-out;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.btn-long:hover {
-    border: #3654ff .2em solid;
-    cursor: pointer
+.btn-long:hover, .btn-short:hover {
+    border-color: #3654ff;
+}
+
+.btn-long {
+    display: inline-block;
+    width: 130px;
+    padding: 10px 0 12px 0;
+    margin: 0 10px 0 0;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .btn-short {
     display: inline-flex;
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     margin: 0 10px;
-    font-size: 18px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all .5s ease-out
-}
-
-.btn-short:hover {
-    border: #3654ff .2em solid
-}
-
-#gmail, #linkedin, #github, #leetcode, #gallery { 
-    border-width: 0.2em;
-    border-style: solid;
 }
 
 #gmail { border-color: #b02b27; }
