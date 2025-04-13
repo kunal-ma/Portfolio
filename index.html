@@ -63,7 +63,10 @@
             </div>
         </div>
         <div class="ctn-blur" id="blurBox">
-            <form class="ctn-popup ctn-contact" id="contactForm">
+            <form class="ctn-popup ctn-contact" id="contactForm" method="POST">
+                <input type="hidden" name="access_key" value="45763749-d886-44f7-9523-5a26b8aadaa6" />
+                <input type="hidden" name="subject" value="Contact Form Submission" />
+                <input type="hidden" name="from_name" value="kunalma.pages.dev" />
                 <label for="email">Email ID</label>
                 <input class="box-input" id="email" type="email" name="email" required>
                 <label for="message">Message</label>
