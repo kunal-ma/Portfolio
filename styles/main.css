@@ -95,6 +95,7 @@ body {
 .ctn-popup {
     z-index: 3;
     position: fixed;
+    width: 55%;
     padding: 30px 30px;
     gap: 20px;
     background: linear-gradient(#101010, #101010) padding-box,
@@ -107,13 +108,11 @@ body {
 }
 
 .ctn-contact {
-    width: 300px;
-    height: 375px;
+    height: 25rem;
 }
 
 .ctn-mail {
-    width: 300px;
-    height: 75px;
+    height: 5rem;
 }
 
 /* Text formatting */
@@ -297,6 +296,10 @@ textarea {
     .ctn-central {
         padding-left: 24px;
         padding-right: 24px;
+    }
+
+    .ctn-popup {
+        width: 20rem;
     }
 }
 
