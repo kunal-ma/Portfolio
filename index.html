@@ -24,8 +24,8 @@
     <script src="scripts/particles.min.js"></script>
     <div id="particles-js"></div>
     
-    <main class="page-view">
-        <div class="ctn-central ctn-block">
+    <main class="flex-center src-full page-view">
+        <div class="flex-column ctn-central">
             <div class="subtitle strong">
                 <!-- Formalities -->
             </div>
@@ -38,7 +38,7 @@
             <div class="subtitle medium">
                 <!-- Description -->
             </div>
-            <div class="ctn-block ctn-link">
+            <div class="flex-space ctn-link">
                 <div id="box-left">
                     <a class="btn-long" type="button" id="connectButton" onclick="connectForm()">🙌 Connect</a>
                     <a class="btn-long" type="button" target="_blank" id="resumeButton" href="https://github.com/kunal-ma/Resume/releases/latest/download/Resume.pdf">💼 Resume</a>
@@ -62,8 +62,8 @@
                 </div>
             </div>
         </div>
-        <div class="ctn-blur" id="blurBox">
-            <form class="ctn-popup ctn-contact" id="contactForm" method="POST">
+        <div class="flex-center src-full ctn-blur" id="blurBox">
+            <form class="flex-column ctn-popup ctn-contact" id="contactForm" method="POST">
                 <input type="hidden" name="access_key" value="45763749-d886-44f7-9523-5a26b8aadaa6" />
                 <input type="hidden" name="subject" value="Contact Form Submission" />
                 <input type="hidden" name="from_name" value="kunalma.pages.dev" />
@@ -74,9 +74,9 @@
                 <button class="btn-submit" id="formSubmit" type="submit">Submit</button>
                 <button class="btn-exit" type="reset" onclick="closePopup()">&times;</button>
             </form>
-            <form class="ctn-popup ctn-mail" id="mailForm">
+            <form class="flex-column ctn-popup ctn-mail" id="mailForm">
                 <label for="emailBox">Email ID</label>
-                <div class="ctn-align">
+                <div class="flex-space">
                     <input class="box-input" id="emailBox" type="text" value="kunalma23@gmail.com" readonly>
                     <button class="btn-copy" type="button" onclick="copyEmail()">
                         <span>
