@@ -44,7 +44,7 @@
                     <a class="btn-long" type="button" target="_blank" id="resumeButton" href="https://github.com/kunal-ma/Resume/releases/latest/download/Resume.pdf">💼 Resume</a>
                 </div>
                 <div id="box-right">
-                    <a class="btn-short" type="button" id="gmail" onclick="copyEmail()">
+                    <a class="btn-short" type="button" id="gmail" onclick="emailForm()">
                         <img src="images/icons/gmail.png" width="18px" alt="Gmail">
                     </a>
                     <a class="btn-short" type="button" target="_blank" id="linkedin" href="https://www.linkedin.com/in/kunal-ma">
@@ -74,7 +74,20 @@
                 <button class="btn-submit" id="formSubmit" type="submit">Submit</button>
                 <button class="btn-exit" type="reset" onclick="closePopup()">&times;</button>
             </form>
-        </div>
+            <form class="ctn-popup ctn-mail" id="mailForm">
+                <label for="emailBox">Email ID</label>
+                <div class="ctn-align">
+                    <input class="box-input" id="emailBox" type="text" value="kunalma23@gmail.com" readonly>
+                    <button class="btn-copy" type="button" onclick="copyEmail()">
+                        <span>
+                            <object id="obj-clip" data="images/icons/copy.svg" type="image/svg+xml" width="20px"></object>
+                            <object id="obj-tick" data="images/icons/tick.svg" type="image/svg+xml" width="20px"></object>
+                        </span>
+                    </button>
+                </div>
+                <button class="btn-exit" type="button" onclick="closePopup()">&times;</button>
+            </form>
+        </div>   
         <script src="scripts/main.js" defer></script>
     </main>
 </body>

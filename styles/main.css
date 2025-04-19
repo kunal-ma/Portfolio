@@ -109,6 +109,17 @@ body {
     height: 375px;
 }
 
+.ctn-mail {
+    width: 300px;
+    height: 75px;
+}
+
+.ctn-align {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* Text formatting */
 
 .title {
@@ -193,6 +204,34 @@ body {
 #leetcode:hover { background-color: #dc9a37; }
 #gallery:hover { background-color: #006241; }
 
+.btn-copy {
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #353434;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+
+.btn-copy:hover {
+    background-color: #464646;
+}
+
+.btn-copy object {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.btn-copy #obj-tick { display: none; }
+.btn-copy:focus:not(:focus-visible) #obj-clip { display: none; }
+.btn-copy:focus:not(:focus-visible) #obj-tick { display: block; }
+
 .btn-submit {
     width: 50%;
     height: 40px;
@@ -234,6 +273,11 @@ textarea {
     height: 150px;
     margin: 0 0 10px 0;
     resize: none;
+}
+
+#emailBox {
+    width: 70%;
+    margin: 0 10px 0 0;
 }
 
 /* Responsive adjustments */
