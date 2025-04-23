@@ -7,6 +7,10 @@
 
 /* Page structure */
 
+a, button {
+    -webkit-tap-highlight-color: transparent;
+}
+
 p {
     margin: 0;
     padding: 0;
@@ -81,8 +85,13 @@ body {
 
 .ctn-link {
     gap: 2rem;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     flex-direction: column;
+}
+
+.ctn-button {
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .ctn-blur {
@@ -170,7 +179,6 @@ body {
     display: inline-block;
     width: 130px;
     padding: 10px 0 12px 0;
-    margin: 0 10px 0 0;
     color: var(--text-color);
     font-size: 1rem;
     font-weight: bold;
@@ -230,9 +238,9 @@ body {
 .btn-submit {
     width: 50%;
     height: 40px;
-    border: none;
     align-self: center;
-    background-color: #7f81ff;
+    background-color: #006bb3;
+    border: 3px solid #ffffff4d;
     border-radius: 10px;
     color: var(--text-color);
     font-weight: bold;
@@ -265,7 +273,7 @@ body {
 }
 
 textarea {
-    height: 150px;
+    height: 10rem;
     margin: 0 0 10px 0;
     resize: none;
 }
