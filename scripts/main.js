@@ -43,7 +43,7 @@ form.addEventListener('submit', function(e) {
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch('/submit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -52,18 +52,18 @@ form.addEventListener('submit', function(e) {
         body: json
     })
     .then(async (response) => {
-        let json = await response.json();
         if (response.status == 200) {
             submitButton.innerText = "Success!";
             submitButton.style.backgroundColor = "#28a745";
         } else {
-            console.log(response);
+            const error = await response.text();
+            console.log("Error: ", error);
             submitButton.innerText = "Error!";
             submitButton.style.backgroundColor = "#dc3545";
         }
     })
     .catch(error => {
-        console.log(error);
+        console.log(error?.message || String(error));
         submitButton.innerText = "Failed!";
         submitButton.style.backgroundColor = "#dc3545";
     })

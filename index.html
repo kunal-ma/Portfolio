@@ -64,13 +64,10 @@
         </div>
         <div class="flex-center src-full ctn-blur" id="blurBox">
             <form class="flex-column ctn-popup ctn-contact" id="contactForm" method="POST">
-                <input type="hidden" name="access_key" value="45763749-d886-44f7-9523-5a26b8aadaa6" />
-                <input type="hidden" name="subject" value="Contact Form Submission" />
-                <input type="hidden" name="from_name" value="kunalma.pages.dev" />
                 <label for="email">Email ID</label>
-                <input class="box-input" id="email" type="email" name="email" required>
+                <input class="box-input" id="email" type="email" name="email" maxlength="100" required>
                 <label for="message">Message</label>
-                <textarea class="box-input" id="message" name="message" required></textarea>
+                <textarea class="box-input" id="message" name="message" maxlength="390" required></textarea>
                 <button class="btn-submit" id="formSubmit" type="submit">Submit</button>
                 <button class="btn-exit" type="reset" onclick="closePopup()">&times;</button>
             </form>
