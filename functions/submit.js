@@ -48,6 +48,7 @@ export async function onRequest(context) {
             const formData = await request.json();
             const e = formData.email;
             const m = formData.message;
+            const d = key;
 
             // Error : (400) Form field length exceeded
             if (e.length > 100 || m.length > 390) {
@@ -55,8 +56,8 @@ export async function onRequest(context) {
             } 
 
             // D1 Write Operation to store form data in DB
-            const entry = DB.prepare("INSERT INTO Portfolio (e, m) VALUES (?, ?)");
-            await entry.bind(e, m).run();
+            const entry = DB.prepare("INSERT INTO Portfolio (d, e, m) VALUES (?, ?, ?)");
+            await entry.bind(d, e, m).run();
 
             // KV Write Operation to increment value of pair, or create new pair
             await KV.put(key, (count + 1).toString(), {
