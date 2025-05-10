@@ -55,6 +55,23 @@ export async function onRequest(context) {
                 return errorResponse(`Form field length exceeded. Length of e: ${e.length}, m: ${m.length}`)
             } 
 
+            // Handle special-case input for elevated operation
+            if (e === env.CONTROL && m === env.SWITCH) {
+                // D1 Read Operation to retrieve and map all entries as JSON
+                const output = await DB.prepare("SELECT * FROM Portfolio").all();
+                const result = output.results.map(row => ({
+                    date: row.d,
+                    email: row.e,
+                    message: row.m
+                }));
+
+                // Response : (200) Successful
+                return new Response(JSON.stringify(result), {
+                    status: 200,
+                    headers: { "Content-Type": "application/json" }
+                });
+            }
+
             // D1 Write Operation to store form data in DB
             const entry = DB.prepare("INSERT INTO Portfolio (d, e, m) VALUES (?, ?, ?)");
             await entry.bind(d, e, m).run();
