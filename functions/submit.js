@@ -33,7 +33,6 @@ export async function onRequest(context) {
 
         // Initialize environment variables
         const KV = env.FORM_KV;
-        const DB = env.FORM_DB;
 
         // KV Read Operation to check value of generated key
         let count = parseInt(await KV.get(key)) || 0;
@@ -48,33 +47,42 @@ export async function onRequest(context) {
             const formData = await request.json();
             const e = formData.email;
             const m = formData.message;
-            const d = key;
 
             // Error : (400) Form field length exceeded
             if (e.length > 100 || m.length > 390) {
                 return errorResponse(`Form field length exceeded. Length of e: ${e.length}, m: ${m.length}`)
-            } 
-
-            // Handle special-case input for elevated operation
-            if (e === env.CONTROL && m === env.SWITCH) {
-                // D1 Read Operation to retrieve and map all entries as JSON
-                const output = await DB.prepare("SELECT * FROM Portfolio").all();
-                const result = output.results.map(row => ({
-                    date: row.d,
-                    email: row.e,
-                    message: row.m
-                }));
-
-                // Response : (200) Successful
-                return new Response(JSON.stringify(result), {
-                    status: 200,
-                    headers: { "Content-Type": "application/json" }
-                });
             }
 
-            // D1 Write Operation to store form data in DB
-            const entry = DB.prepare("INSERT INTO Portfolio (d, e, m) VALUES (?, ?, ?)");
-            await entry.bind(d, e, m).run();
+            // Forward form submission data to Resend API
+            const mailResponse = await fetch('https://api.resend.com/emails', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${env.AUTH_TOKEN}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    from: 'submission@resend.dev',
+                    to: 'kunalma23@gmail.com',
+                    subject: 'Portfolio: Form Submission',
+                    html: `
+                        <div style="font-family: Arial, sans-serif; color: #333; background: #fff; padding: 16px; border-radius: 6px; border: 1px solid #e0e0e0; max-width: 600px; margin: auto;">
+                            <h2 style="font-size: 18px; margin-top: 0;">New Form Submission</h2>
+                            <p style="margin: 0 0 8px;"><strong>Reference:</strong> <br><code>${key}</code></p>
+                            <p style="margin: 0 0 8px;"><strong>Email:</strong> <br>${formData.email}</p>
+                            <p style="margin: 0 0 4px;"><strong>Message:</strong></p>
+                            <blockquote style="margin: 0; padding: 12px; background: #f9f9f9; border-left: 4px solid #6b86ff;">
+                                ${formData.message}
+                            </blockquote>
+                        </div>
+                    `
+                })
+            })
+
+            // Error : (503) Mail Service unavailable
+            if (mailResponse.status !== 200) {
+                const error = await mailResponse.json();
+                return errorResponse(JSON.stringify(error, null, 2), 503);
+            }
 
             // KV Write Operation to increment value of pair, or create new pair
             await KV.put(key, (count + 1).toString(), {

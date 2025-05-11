@@ -6,12 +6,5 @@
             "binding": "FORM_KV",
             "id": "dd9974cd7d9d4a08b8b93e3102928e38"
         }
-    ],
-    "d1_databases": [
-        {
-            "binding": "FORM_DB",
-            "database_name": "form-db",
-            "database_id": "5e14a109-6d9d-4a6c-9a1a-7b72e54c6aeb"
-        }
     ]
 }
