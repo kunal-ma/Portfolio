@@ -57,7 +57,7 @@ export async function onRequest(context) {
             const mailResponse = await fetch('https://api.resend.com/emails', {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${env.AUTH_TOKEN}`,
+                    'Authorization': `Bearer ${env.FORM_TOKEN}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
