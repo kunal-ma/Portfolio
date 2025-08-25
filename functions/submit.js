@@ -50,7 +50,7 @@ export async function onRequest(context) {
 
             // Error : (400) Form field length exceeded
             if (e.length > 100 || m.length > 390) {
-                return errorResponse(`Form field length exceeded. Length of e: ${e.length}, m: ${m.length}`)
+                return errorResponse(`Form field length exceeded. Length of e: ${e.length}, m: ${m.length}`, 400);
             }
 
             // Forward form submission data to Resend API
@@ -76,7 +76,7 @@ export async function onRequest(context) {
                         </div>
                     `
                 })
-            })
+            });
 
             // Error : (503) Mail Service unavailable
             if (mailResponse.status !== 200) {
