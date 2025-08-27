@@ -1,0 +1,19 @@
+{
+	"name": "kunalma",
+	"main": "src/index.js",
+	"compatibility_date": "2025-08-26",
+	// "compatibility_flags": [
+	// 	"nodejs_compat",
+	// 	"global_fetch_strictly_public"
+	// ],
+	"assets": {
+		"directory": "./public",
+		"binding": "ASSETS"
+	}
+	// "kv_namespaces": [
+    //     {
+    //         "binding": "PORT_KV",
+    //         "id": ""
+    //     }
+    // ]
+}
