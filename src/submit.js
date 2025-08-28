@@ -9,13 +9,15 @@ export async function formSubmit(request, env) {
     try {
         // Whitelisted domains for Function access
         const ALLOWED_ORIGINS = [
-            "https://kunalma.pages.dev",
-            "https://dev.kunalma.pages.dev"
+            "https://kunalma.kunalma.workers.dev",
+            /^https:\/\/[a-z0-9-]+-kunalma\.kunalma\.workers\.dev$/
         ];
 
         // Error : (403) Unknown origin of request
         const origin = request.headers.get("Origin") || "unknown";
-        if (!ALLOWED_ORIGINS.includes(origin)) {
+        if (!ALLOWED_ORIGINS.some(o =>
+            (typeof o === "string" && o === origin) ||
+            (o instanceof RegExp && o.test(origin)))) {
             return errorResponse(`Unknown origin of request. Origin: ${origin}`, 403);
         }
 
