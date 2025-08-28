@@ -5,10 +5,8 @@ function errorResponse(message, code = 500) {
     });
 }
 
-export async function onRequest(context) {
+export async function formSubmit(request, env) {
     try {
-        const { request, env } = context;
-
         // Whitelisted domains for Function access
         const ALLOWED_ORIGINS = [
             "https://kunalma.pages.dev",
@@ -32,7 +30,7 @@ export async function onRequest(context) {
         const key = `${ip}:${today}`;
 
         // Initialize environment variables
-        const KV = env.FORM_KV;
+        const KV = env.PORT_KV;
 
         // KV Read Operation to check value of generated key
         let count = parseInt(await KV.get(key)) || 0;
