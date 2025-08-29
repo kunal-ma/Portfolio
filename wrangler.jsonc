@@ -9,11 +9,11 @@
 	"assets": {
 		"directory": "./public",
 		"binding": "ASSETS"
-	}
-	// "kv_namespaces": [
-    //     {
-    //         "binding": "PORT_KV",
-    //         "id": ""
-    //     }
-    // ]
+	},
+	"kv_namespaces": [
+        {
+            "binding": "PORT_KV",
+            "id": "c70b3f2b129447429d52436d9e2f18ef"
+        }
+    ]
 }
