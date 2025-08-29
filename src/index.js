@@ -1,4 +1,4 @@
-import { formSubmit } from "./submit.js";
+import { formSubmit } from "./form.js";
 
 export default {
     async fetch(request, env) {
