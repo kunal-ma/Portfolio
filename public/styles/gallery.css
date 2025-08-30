@@ -1,0 +1,29 @@
+/* Global variables */
+
+:root {
+    --bg-color: #08090a;
+    --text-color: #f7f8f8;
+    --text-muted: #6b7280;
+    --gap: 10px;
+}
+
+/* Page structure */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color)
+}
