@@ -1,0 +1,9 @@
+# Logs
+
+logs
+node_modules/
+
+# Wrangler
+
+.env*
+.wrangler/
