@@ -1,3 +1,5 @@
+import { sendEmail } from "./mail.js";
+
 function errorResponse(message, code = 500) {
     return new Response(message, {
         status: code,
@@ -9,6 +11,7 @@ export async function formSubmit(request, env) {
     try {
         // Whitelisted domains for Function access
         const ALLOWED_ORIGINS = [
+            // "http://127.0.0.1:8787",
             "https://kunalma.kunalma.workers.dev",
             /^https:\/\/[a-z0-9-]+-kunalma\.kunalma\.workers\.dev$/
         ];
@@ -54,28 +57,16 @@ export async function formSubmit(request, env) {
             }
 
             // Forward form submission data to Resend API
-            const mailResponse = await fetch('https://api.resend.com/emails', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${env.FORM_TOKEN}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    from: 'submission@resend.dev',
-                    to: 'kunalma23@gmail.com',
-                    subject: 'Portfolio: Form Submission',
-                    html: `
-                        <div style="font-family: Arial, sans-serif; color: #333; background: #fff; padding: 16px; border-radius: 6px; border: 1px solid #e0e0e0; max-width: 600px; margin: auto;">
-                            <h2 style="font-size: 18px; margin-top: 0;">New Form Submission</h2>
-                            <p style="margin: 0 0 8px;"><strong>Reference:</strong> <br><code>${key}</code></p>
-                            <p style="margin: 0 0 8px;"><strong>Email:</strong> <br>${formData.email}</p>
-                            <p style="margin: 0 0 4px;"><strong>Message:</strong></p>
-                            <blockquote style="margin: 0; padding: 12px; background: #f9f9f9; border-left: 4px solid #6b86ff;">
-                                ${formData.message}
-                            </blockquote>
-                        </div>
-                    `
-                })
+            const mailResponse = await sendEmail(env, {
+                title: "New Form Submission",
+                content: `
+                    <p><strong>Reference:</strong> <br><code>${key}</code></p>
+                    <p><strong>Email:</strong> <br>${formData.email}</p>
+                    <p><strong>Message:</strong></p>
+                    <blockquote style="margin: 0; padding: 12px; background: #f9f9f9; border-left: 4px solid #6b86ff;">
+                        ${formData.message}
+                    </blockquote>
+                `
             });
 
             // Error : (503) Mail Service unavailable
