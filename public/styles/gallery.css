@@ -82,3 +82,26 @@ body {
     color: var(--text-muted);
     max-width: 400px;
 }
+
+/* Gallery grid */
+
+.gallery {
+    column-width: 20rem;
+    column-gap: 15px;
+    padding: 0 2rem;
+}
+
+.tile {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .1);
+    overflow: hidden;
+    break-inside: avoid;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.tile img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
