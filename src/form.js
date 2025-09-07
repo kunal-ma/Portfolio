@@ -12,7 +12,7 @@ export async function formSubmit(request, env) {
         // Whitelisted domains for Function access
         const ALLOWED_ORIGINS = [
             // "http://127.0.0.1:8787",
-            "https://kunalma.kunalma.workers.dev",
+            "https://kunalma.com",
             /^https:\/\/[a-z0-9-]+-kunalma\.kunalma\.workers\.dev$/
         ];
 

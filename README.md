@@ -2,7 +2,7 @@
 <h1 align="center">Portfolio</h1>
 
 <p align="center">
-Source code for my personal website, hosted at <a href="https://kunalma.pages.dev">kunalma.pages.dev</a>.
+Source code for my personal website, hosted at <a href="https://kunalma.com">kunalma.com</a>.
 </p>
 </div>
 
