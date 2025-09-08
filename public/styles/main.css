@@ -167,6 +167,9 @@ body {
     text-align: center;
     vertical-align: middle;
     background-color: transparent;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: bold;
     border-radius: 500px;
     border: #ffffff7d .2rem solid;
     transition: all .3s ease-out;
@@ -182,9 +185,6 @@ body {
     display: inline-block;
     width: 130px;
     padding: 10px 0 12px 0;
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: bold;
 }
 
 .btn-short {
@@ -193,9 +193,36 @@ body {
     width: 45px;
     height: 45px;
     margin: 0 10px;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.btn-short img {
+    flex-shrink: 0;
+}
+
+.btn-short span {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 0;
+    transform: translateX(-5px);
+    transition: all .3s ease;
+}
+
+.btn-short:hover {
+    width: 100px;
+    padding: 0 15px;
+    justify-content: center;
+}
+
+.btn-short:hover span {
+    max-width: 90px;
+    margin-left: 12px;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 #gmail { border-color: #b02b27; }
